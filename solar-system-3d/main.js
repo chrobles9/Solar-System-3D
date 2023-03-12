@@ -19,13 +19,13 @@ function initScene() {
   // create Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 50;
+  camera.position.z = 100;
 
   renderer.render(scene, camera);
 
   // Add renderer to page
   document.body.appendChild(renderer.domElement);
-
+    sun();
     terrestrialPlanets();
     // gasGiantPlanets();
 
@@ -34,21 +34,68 @@ function initScene() {
 
 }
 
+function sun() {
+  const geometry = new THREE.SphereGeometry(20, 32, 32);
+  const material = new THREE.MeshStandardMaterial( { 
+    color: 'red',
+  });
+  const sun = new THREE.Mesh( geometry, material );
+  scene.add( sun );
+
+}
+
 
 function terrestrialPlanets() {
-  for(let i = 0; i < 6; i++){
-   // TODO: create random sphere geometry points for smaller planets 
 
-    const geometry = new THREE.SphereGeometry( 2, 32, 32 );
+  // Mercury 
+  function mercury() {
+    const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
     const material = new THREE.MeshStandardMaterial( { color: 0xffff00 } );
-    const sphere = new THREE.Mesh( geometry, material );
+    const mercury = new THREE.Mesh( geometry, material );
+    mercury.position.z = 25;
+    scene.add( mercury ); 
+  }
 
-    sphere.position.x = i * (Math.floor(Math.random() * (9 - 0) + 0));
+  // Venus
+  function venus() {
+    const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
+    const material = new THREE.MeshStandardMaterial( { 
+      color: 'purple',
+    } );
+    const mercury = new THREE.Mesh( geometry, material );
+    mercury.position.z = 33;
+    scene.add( mercury );  
+  }
+  
+  // Earth
+  function earth() {
+    const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
+    const material = new THREE.MeshStandardMaterial( { 
+      color: 'blue',
+    } );
+    const earth = new THREE.Mesh( geometry, material );
+    earth.position.z = 41;
+    scene.add( earth );  
+  }
 
-    scene.add( sphere );
+  // Mars
+  function mars() {
+    const geometry = new THREE.SphereGeometry( 2.5, 32, 32);
+    const material = new THREE.MeshStandardMaterial( {
+      color: 'red',
+    });
+    const mars = new THREE.Mesh( geometry, material );
+    mars.position.z = 49;
+    scene.add( mars );
   }
 
 
+
+
+  mercury();
+  venus();
+  earth();
+  mars();
 }
 
 
