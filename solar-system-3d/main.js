@@ -19,7 +19,8 @@ function initScene() {
   // create Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 100;
+  camera.position.z = 180;
+  camera.position.x = -100;
 
   renderer.render(scene, camera);
 
@@ -27,11 +28,9 @@ function initScene() {
   document.body.appendChild(renderer.domElement);
     sun();
     terrestrialPlanets();
-    // gasGiantPlanets();
-
+    gasGiantPlanets();
     addLighting();
     animate();
-
 }
 
 function sun() {
@@ -41,12 +40,9 @@ function sun() {
   });
   const sun = new THREE.Mesh( geometry, material );
   scene.add( sun );
-
 }
 
-
 function terrestrialPlanets() {
-
   // Mercury 
   function mercury() {
     const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
@@ -55,7 +51,6 @@ function terrestrialPlanets() {
     mercury.position.z = 25;
     scene.add( mercury ); 
   }
-
   // Venus
   function venus() {
     const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
@@ -66,7 +61,6 @@ function terrestrialPlanets() {
     mercury.position.z = 33;
     scene.add( mercury );  
   }
-  
   // Earth
   function earth() {
     const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
@@ -77,7 +71,6 @@ function terrestrialPlanets() {
     earth.position.z = 41;
     scene.add( earth );  
   }
-
   // Mars
   function mars() {
     const geometry = new THREE.SphereGeometry( 2.5, 32, 32);
@@ -88,16 +81,57 @@ function terrestrialPlanets() {
     mars.position.z = 49;
     scene.add( mars );
   }
-
-
-
-
   mercury();
   venus();
   earth();
   mars();
 }
-
+function gasGiantPlanets() {
+  // Jupiter
+  function jupiter() {
+    const geometry = new THREE.SphereGeometry( 6, 32, 32 );
+    const material = new THREE.MeshStandardMaterial( {
+      color: 'purple',
+    });
+    const jupiter = new THREE.Mesh( geometry, material );
+    jupiter.position.z = 65;
+    scene.add(jupiter);
+  }
+  // Saturn
+  function saturn() {
+    const geometry = new THREE.SphereGeometry( 6, 32, 32 );
+    const material = new THREE.MeshStandardMaterial( {
+      color: 'pink',
+    });
+    const saturn = new THREE.Mesh( geometry, material );
+    saturn.position.z = 80;
+    scene.add(saturn);
+  }
+  // Uranus
+  function uranus() {
+    const geometry = new THREE.SphereGeometry( 6, 32, 32 );
+    const material = new THREE.MeshStandardMaterial( {
+      color: 'green',
+    });
+    const uranus = new THREE.Mesh( geometry, material );
+    uranus.position.z = 95;
+    scene.add(uranus);
+  }
+  // Neptune
+  function neptune() {
+    const geometry = new THREE.SphereGeometry( 6, 32, 32 );
+    const material = new THREE.MeshStandardMaterial( {
+      color: 'yellow',
+    });
+    const neptune = new THREE.Mesh( geometry, material );
+    neptune.position.z = 110;
+    scene.add(neptune);
+  }
+  jupiter();
+  saturn();
+  uranus();
+  neptune();
+}
 
 
 function addLighting() {
@@ -116,7 +150,6 @@ function addLighting() {
 
   controls = new OrbitControls(camera, renderer.domElement);
 }
-
 
 function animate() {
   requestAnimationFrame(animate);
