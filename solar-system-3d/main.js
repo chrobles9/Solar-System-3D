@@ -19,15 +19,15 @@ function initScene() {
   // create Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 180;
-  camera.position.x = -100;
+  // camera.position.z = 200;
+  camera.position.x = 200;
 
   renderer.render(scene, camera);
 
   // Add renderer to page
   document.body.appendChild(renderer.domElement);
-    sun();
-    terrestrialPlanets();
+    // sun();
+    // terrestrialPlanets();
     gasGiantPlanets();
     addLighting();
     animate();
@@ -94,18 +94,39 @@ function gasGiantPlanets() {
       color: 'purple',
     });
     const jupiter = new THREE.Mesh( geometry, material );
-    jupiter.position.z = 65;
+    jupiter.position.z = 70;
     scene.add(jupiter);
+    function jupiterRing() {
+      const geometry = new THREE.RingGeometry( 9, 7, 32 );
+      const material = new THREE.MeshBasicMaterial( {
+        color: 0xfff00, side: THREE.DoubleSide
+      });
+      const jupiterRing = new THREE.Mesh( geometry, material );
+      jupiterRing.position.z = 70;
+      scene.add(jupiterRing);
+    }
+    jupiterRing();
   }
   // Saturn
-  function saturn() {
+  function createSaturn() {
     const geometry = new THREE.SphereGeometry( 6, 32, 32 );
     const material = new THREE.MeshStandardMaterial( {
       color: 'pink',
     });
     const saturn = new THREE.Mesh( geometry, material );
-    saturn.position.z = 80;
+    saturn.position.z = 85;
     scene.add(saturn);
+    function saturnRing() {
+      const geometry = new THREE.RingGeometry( 12, 7, 32 );
+      const material = new THREE.MeshBasicMaterial( {
+        color: 0xfff00, side: THREE.DoubleSide
+      });
+      const saturnRing = new THREE.Mesh( geometry, material );
+      saturnRing.position.z = 85;
+      scene.add(saturnRing);
+
+    }
+    saturnRing();
   }
   // Uranus
   function uranus() {
@@ -114,7 +135,7 @@ function gasGiantPlanets() {
       color: 'green',
     });
     const uranus = new THREE.Mesh( geometry, material );
-    uranus.position.z = 95;
+    uranus.position.z = 100;
     scene.add(uranus);
   }
   // Neptune
@@ -124,11 +145,11 @@ function gasGiantPlanets() {
       color: 'yellow',
     });
     const neptune = new THREE.Mesh( geometry, material );
-    neptune.position.z = 110;
+    neptune.position.z = 115;
     scene.add(neptune);
   }
   jupiter();
-  saturn();
+  createSaturn();
   uranus();
   neptune();
 }
