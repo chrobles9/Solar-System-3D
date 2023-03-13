@@ -1,11 +1,16 @@
 import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { MeshStandardMaterial } from "three";
 
 // Global canvas variables
 let scene, camera, renderer, controls;
 // Planets
-let sceneObjects = [];
+// let sceneObjects = [];
+
+const normalMap = new THREE.TextureLoader().load(
+  './media/textures/normalMap.png'
+);
 
 // Initiate Scene
 function initScene() {
@@ -19,8 +24,8 @@ function initScene() {
   // create Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  // camera.position.z = 200;
-  camera.position.x = 200;
+  camera.position.z = 200;
+  // camera.position.x = 20;
 
   renderer.render(scene, camera);
 
@@ -34,50 +39,81 @@ function initScene() {
 }
 
 function sun() {
-  const geometry = new THREE.SphereGeometry(20, 32, 32);
-  const material = new THREE.MeshStandardMaterial( { 
-    color: 'red',
-  });
-  const sun = new THREE.Mesh( geometry, material );
+  const sunTexture = new THREE.TextureLoader().load(
+    './media/textures/sunTexture.jpg'
+    );
+
+  const sun = new THREE.Mesh(   
+    new THREE.SphereGeometry(20, 32, 32),
+    new THREE.MeshStandardMaterial( {
+      map: sunTexture,
+      normalMap: normalMap
+    })
+  );
   scene.add( sun );
 }
 
 function terrestrialPlanets() {
   // Mercury 
   function mercury() {
-    const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
-    const material = new THREE.MeshStandardMaterial( { color: 0xffff00 } );
-    const mercury = new THREE.Mesh( geometry, material );
+    const mercuryTexture = new THREE.TextureLoader().load(
+      './media/textures/mercuryTexture.jpg'
+    );
+
+    const mercury = new THREE.Mesh( 
+      new THREE.SphereGeometry( 2.5, 32, 32 ),
+      new THREE.MeshStandardMaterial( {
+        map: mercuryTexture,
+        normalMap: normalMap
+      })
+     );
     mercury.position.z = 30;
     scene.add( mercury ); 
   }
   // Venus
   function venus() {
-    const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
-    const material = new THREE.MeshStandardMaterial( { 
-      color: 'purple',
-    } );
-    const mercury = new THREE.Mesh( geometry, material );
-    mercury.position.z = 38;
-    scene.add( mercury );  
+    const venusTexture = new THREE.TextureLoader().load(
+      './media/textures/venusTexture.jpg'
+    );
+    const venus = new THREE.Mesh( 
+      new THREE.SphereGeometry( 2.5, 32, 32 ),
+      new THREE.MeshStandardMaterial( {
+        map: venusTexture,
+        normalMap: normalMap
+      })
+      
+     );
+    venus.position.z = 38;
+    scene.add( venus );  
   }
   // Earth
   function earth() {
-    const geometry = new THREE.SphereGeometry( 2.5, 32, 32 );
-    const material = new THREE.MeshStandardMaterial( { 
-      color: 'blue',
-    } );
-    const earth = new THREE.Mesh( geometry, material );
+    const earthTexture = new THREE.TextureLoader().load(
+      './media/textures/earthTexture.jpg'
+    );
+
+    const earth = new THREE.Mesh( 
+      new THREE.SphereGeometry( 2.5, 32, 32 ),
+      new THREE.MeshStandardMaterial( {
+        map: earthTexture, 
+        normalMap: normalMap
+      })
+     );
     earth.position.z = 46;
     scene.add( earth );  
   }
   // Mars
   function mars() {
-    const geometry = new THREE.SphereGeometry( 2.5, 32, 32);
-    const material = new THREE.MeshStandardMaterial( {
-      color: 'red',
-    });
-    const mars = new THREE.Mesh( geometry, material );
+    const marsTexture = new THREE.TextureLoader().load(
+      './media/textures/marsTexture.jpg'
+    );
+    const mars = new THREE.Mesh( 
+      new THREE.SphereGeometry( 2.5, 32, 32),
+      new MeshStandardMaterial( {
+        map: marsTexture,
+        normalMap: normalMap
+      })
+     );
     mars.position.z = 54;
     scene.add( mars );
   }
