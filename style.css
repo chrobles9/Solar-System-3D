@@ -1,0 +1,50 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+section {
+  position: absolute;
+  width: 98%;
+}
+
+.title {
+  font-size: 3rem;
+  margin-top: 6rem;
+}
+
+.description {
+  font-size: 1.5;
+  margin: 4rem 0 8rem 0;
+}
+
+.outsideLink {
+  color: aqua;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.outsideLink:hover {
+  color: #ff00c8;
+}
+
+.outsideLink:visited {
+  text-decoration: none;
+}
+
+.author {
+  font-size: 1.5rem;
+}
+
+/* Added height to each section to test animation scroll  */
+div {
+  height: 8500px;
+}
