@@ -10,7 +10,7 @@ let scene, camera, renderer;
 let sceneObjects = [];
 
 const normalMap = new THREE.TextureLoader().load(
-  "/textures/normalMap.png"
+  "textures/normalMap.png"
 );
 
 // Initiate Scene
@@ -48,7 +48,7 @@ function initScene() {
 
 function createSun() {
   const sunTexture = new THREE.TextureLoader().load(
-    "/textures/sunTexture.jpg"
+    "textures/sunTexture.jpg"
   );
   const sun = new THREE.Mesh(
     new THREE.SphereGeometry(50, 32, 32),
@@ -66,7 +66,7 @@ function terrestrialPlanets() {
   // Mercury
   function mercury() {
     const mercuryTexture = new THREE.TextureLoader().load(
-      "/textures/mercuryTexture.jpg"
+      "textures/mercuryTexture.jpg"
     );
     const mercury = new THREE.Mesh(
       new THREE.SphereGeometry(0.7, 32, 32),
@@ -82,7 +82,7 @@ function terrestrialPlanets() {
   }
   function venus() {
     const venusTexture = new THREE.TextureLoader().load(
-      "/textures/venusTexture.jpg"
+      "textures/venusTexture.jpg"
     );
     const venus = new THREE.Mesh(
       new THREE.SphereGeometry(1.7, 32, 32),
@@ -99,7 +99,7 @@ function terrestrialPlanets() {
   }
   function earth() {
     const earthTexture = new THREE.TextureLoader().load(
-      "/textures/earthTexture.jpg"
+      "textures/earthTexture.jpg"
     );
     const earth = new THREE.Mesh(
       new THREE.SphereGeometry(2, 32, 32),
@@ -116,7 +116,7 @@ function terrestrialPlanets() {
   // Mars
   function mars() {
     const marsTexture = new THREE.TextureLoader().load(
-      "/textures/marsTexture.jpg"
+      "textures/marsTexture.jpg"
     );
     const mars = new THREE.Mesh(
       new THREE.SphereGeometry(1, 32, 32),
@@ -138,7 +138,7 @@ function terrestrialPlanets() {
 function gasGiantPlanets() {
   function jupiter() {
     const jupiterTextue = new THREE.TextureLoader().load(
-      "/textures/jupiterTexture.jpg"
+      "textures/jupiterTexture.jpg"
     );
     const jupiter = new THREE.Mesh(
       new THREE.SphereGeometry(13, 32, 32),
@@ -154,7 +154,7 @@ function gasGiantPlanets() {
   }
   function createSaturn() {
     const saturnTexture = new THREE.TextureLoader().load(
-      "/textures/saturnTexture.jpg"
+      "textures/saturnTexture.jpg"
     );
     const saturn = new THREE.Mesh(
       new THREE.SphereGeometry(9, 32, 32),
@@ -167,7 +167,7 @@ function gasGiantPlanets() {
     saturn.position.x = -20;
     function saturnRing() {
       const saturnRingTexture = new THREE.TextureLoader().load(
-        "/textures/saturnRing.jpg"
+        "textures/saturnRing.jpg"
       );
       const geometry = new THREE.RingGeometry(3, 16, 82);
       let pos = geometry.attributes.position;
@@ -196,7 +196,7 @@ function gasGiantPlanets() {
   }
   function uranus() {
     const uranusTexture = new THREE.TextureLoader().load(
-      "/textures/uranusTexture.jpg"
+      "textures/uranusTexture.jpg"
     );
     const uranus = new THREE.Mesh(
       new THREE.SphereGeometry(6, 32, 32),
@@ -212,7 +212,7 @@ function gasGiantPlanets() {
   }
   function neptune() {
     const neptuneTexture = new THREE.TextureLoader().load(
-      "/textures/neptuneTexture.jpg"
+      "textures/neptuneTexture.jpg"
     );
     const neptune = new THREE.Mesh(
       new THREE.SphereGeometry(4, 32, 32),
@@ -279,7 +279,7 @@ function createStar() {
 
 function sceneBackground() {
   const backgroundTexture = new THREE.TextureLoader().load(
-    "/textures/backgroundTexture.jpg"
+    "textures/backgroundTexture.jpg"
   );
   scene.background = backgroundTexture;
 }
